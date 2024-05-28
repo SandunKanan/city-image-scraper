@@ -46,6 +46,7 @@ for item, orig_item in zip(processed_items, items):
     elif len(img_urls) > 0:
         results[orig_item] = img_urls[0]
     else:
+        print("No image found for", orig_item)
         results[orig_item] = None
 
     # Print the results for debugging purposes
@@ -55,7 +56,7 @@ for item, orig_item in zip(processed_items, items):
     # time.sleep(1)
 
 # Write the results to a JSON file
-with open('FILE_OUTPUT', 'w') as file:
+with open(FILE_OUTPUT, 'w') as file:
     json.dump(results, file, indent=2)
 
 print(f"Results saved to {FILE_OUTPUT}.json")
